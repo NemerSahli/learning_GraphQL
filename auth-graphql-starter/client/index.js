@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles/style.css';
 import ReactDOM from 'react-dom';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
