@@ -5,7 +5,13 @@ import userQuery from '../../queries/CurrentUser';
 import logoutMutation from '../../mutations/logout';
 class Header extends Component {
   onLogout() {
-    this.props.mutate({});
+    this.props.mutate({
+      refetchQueries: [
+        {
+          query: userQuery
+        }
+      ]
+    });
   }
   render() {
     const { loading, user } = this.props.data;
@@ -19,7 +25,7 @@ class Header extends Component {
           <ul className="right">
             {user ? (
               <li>
-                <a onClick={this.onLogout.bind(this)}>Login</a>
+                <a onClick={this.onLogout.bind(this)}>Logout</a>
               </li>
             ) : (
               <div>

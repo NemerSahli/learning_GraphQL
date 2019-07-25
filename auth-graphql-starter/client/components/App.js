@@ -4,7 +4,7 @@ const App = props => {
   return (
     <div>
       <Header />
-      {props.children}
+      <div className="container">{props.children}</div>
     </div>
   );
 };
