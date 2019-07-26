@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import userQuery from '../../queries/CurrentUser';
 import logoutMutation from '../../mutations/logout';
+
 class Header extends Component {
   onLogout() {
     this.props.mutate({
@@ -43,4 +44,4 @@ class Header extends Component {
     );
   }
 }
-export default graphql(logoutMutation)(graphql(userQuery)(Header));
+export default graphql(userQuery)(graphql(logoutMutation)(Header));
